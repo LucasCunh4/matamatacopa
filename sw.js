@@ -1,4 +1,4 @@
-const CACHE_NAME = 'copa26-tracker-v6';
+const CACHE_NAME = 'copa26-tracker-v7';
 
 const APP_SHELL = [
   './',
