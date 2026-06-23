@@ -7,63 +7,1462 @@
 <link rel="manifest" href="./manifest.json">
 <title>Copa 26 Tracker</title>
 <style>
-:root{color-scheme:dark;--bg:#080a0f;--card:#11151e;--card2:#151a24;--line:#ffffff1b;--text:#f2f4f8;--muted:#8f98a8;--gold:#d8b65f;--green:#4cc38a;--red:#e66b72}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:10px 12px}.wrap{width:min(1760px,calc(100% - 32px));margin:auto;padding-bottom:36px}.hero{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:24px 0 14px}.brand{display:flex;gap:14px;align-items:center}.logo{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:var(--card);border:1px solid var(--line);color:var(--gold);font-size:28px}h1{font-size:clamp(1.75rem,3.2vw,3.2rem);margin:0;letter-spacing:-.045em}.sub{margin:.25rem 0 0;color:var(--muted)}.saved{border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--muted)}nav{display:flex;gap:6px;border:1px solid var(--line);border-radius:16px;padding:6px;margin-bottom:20px;overflow:auto}.tab{flex:1;color:var(--muted);min-width:150px}.tab.on{background:var(--card2);color:var(--text)}.primary{background:var(--text);color:var(--bg);border-color:var(--text)}.danger{color:#f1a1a6;border-color:#e66b7266}.head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin:10px 0 16px}.eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:800;margin:0 0 6px}.head h2{font-size:clamp(1.45rem,2.4vw,2.3rem);margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card,.wide,.side,.center,.match,.champ{background:var(--card);border:1px solid var(--line);border-radius:18px}.card{overflow:hidden}.card>header{padding:15px 16px;border-bottom:1px solid var(--line)}.card h3{margin:0 0 6px;font-size:1.12rem}.muted{color:var(--muted)}.table{overflow:auto}table{width:100%;min-width:610px;border-collapse:collapse}th,td{padding:9px 10px;border-bottom:1px solid #ffffff12;text-align:center;white-space:nowrap}th{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}td.team,th:nth-child(2){text-align:left}.q{background:#4cc38a14}.third{background:#d8b65f14}.pos{color:var(--gold);font-weight:800}.flag{font-size:1.15em;margin-right:7px}.team,.rt,.bt span{display:flex;align-items:center;gap:2px}.wide{padding:16px;margin-top:14px}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);font-size:.78rem}.ok{color:#bff5d7;border-color:#4cc38a66;background:#4cc38a14}.out{color:#c9ced8}textarea{width:100%;min-height:190px;resize:vertical;background:#0b0e14;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.block{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px}.block h4{margin:0;padding:12px 14px;background:var(--card2)}.row{display:grid;grid-template-columns:105px minmax(140px,1fr) 52px 18px 52px minmax(140px,1fr) 34px;gap:8px;align-items:center;padding:9px 10px;border-top:1px solid #ffffff12}.koRow{grid-template-columns:140px minmax(140px,1fr) 52px 18px 52px minmax(140px,1fr) 34px minmax(150px,auto)}.meta{color:var(--muted);font-size:.78rem}.rt.r{justify-content:flex-end;text-align:right}input,select{background:#0b0e14;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center;width:100%}select{text-align:left}.x{color:var(--gold);font-weight:800;text-align:center}.bracket{display:grid;grid-template-columns:760px 250px 760px;gap:14px;width:max-content;min-width:100%;overflow-x:auto;padding-bottom:12px}.side{width:760px;padding:14px}.center{width:250px;padding:14px;display:flex;flex-direction:column;justify-content:center;gap:12px}.heads,.tree{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.heads{margin-bottom:10px}.heads span,.label{color:var(--muted);text-transform:uppercase;letter-spacing:.11em;font-size:.66rem;text-align:center;font-weight:800}.tree{grid-template-rows:repeat(8,minmax(116px,auto))}.slot{display:flex;align-items:center}.match{width:100%;border-radius:14px;padding:10px}.match header{display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem;margin-bottom:6px}.src{color:#747e90;font-size:.68rem;margin-bottom:6px}.bt{display:grid;grid-template-columns:minmax(0,1fr) 28px;gap:6px;align-items:center;background:#0b0e14;border:1px solid #ffffff13;border-radius:10px;padding:8px 9px;margin-top:5px}.bt.win{border-color:#4cc38a77;background:#4cc38a1a}.bt b{text-align:right}.champ{background:var(--card2);padding:12px}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;transition:.2s;background:#0b0e14;border:1px solid var(--line);border-radius:12px;padding:10px 14px}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.hero,.head{align-items:flex-start;flex-direction:column}}@media(max-width:760px){.wrap{width:min(100% - 18px,1760px)}.grid{grid-template-columns:1fr}.row,.koRow{grid-template-columns:1fr 44px 18px 44px 1fr 32px}.meta,select{grid-column:1/-1}.logo{width:48px;height:48px}.bracket{display:grid;grid-template-columns:1fr;width:100%;min-width:0;overflow:visible;gap:12px}.side,.center{width:100%;padding:12px}.center{order:-1}.heads{display:none}.tree{display:block}.slot{display:block;margin-bottom:10px}.match{width:100%}.src{display:none}.bt{grid-template-columns:minmax(0,1fr) 24px;padding:7px 8px}.flag{margin-right:5px}}
+:root{
+  color-scheme:dark;
+  --bg:#080a0f;
+  --card:#11151e;
+  --card2:#151a24;
+  --line:#ffffff1b;
+  --text:#f2f4f8;
+  --muted:#8f98a8;
+  --gold:#d8b65f;
+  --green:#4cc38a;
+  --red:#e66b72;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+
+button,input,textarea,select{font:inherit}
+
+button{
+  cursor:pointer;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 12px;
+}
+
+button:hover{background:#ffffff0a}
+
+button:disabled,input:disabled,select:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.wrap{
+  width:min(1760px,calc(100% - 32px));
+  margin:auto;
+  padding-bottom:36px;
+}
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
+  padding:24px 0 14px;
+}
+
+.brand{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.logo{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--gold);
+  font-size:28px;
+}
+
+h1{
+  font-size:clamp(1.75rem,3.2vw,3.2rem);
+  margin:0;
+  letter-spacing:-.045em;
+}
+
+.sub{
+  margin:.25rem 0 0;
+  color:var(--muted);
+}
+
+.saved{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:9px 12px;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+nav{
+  display:flex;
+  gap:6px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:6px;
+  margin-bottom:20px;
+  overflow:auto;
+}
+
+.tab{
+  flex:1;
+  color:var(--muted);
+  min-width:150px;
+}
+
+.tab.on{
+  background:var(--card2);
+  color:var(--text);
+}
+
+.primary{
+  background:var(--text);
+  color:var(--bg);
+  border-color:var(--text);
+}
+
+.danger{
+  color:#f1a1a6;
+  border-color:#e66b7266;
+}
+
+.head{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:end;
+  margin:10px 0 16px;
+}
+
+.eyebrow{
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  color:var(--muted);
+  font-weight:800;
+  margin:0 0 6px;
+}
+
+.head h2{
+  font-size:clamp(1.45rem,2.4vw,2.3rem);
+  margin:0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.card,.wide,.side,.center,.match,.champ{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+
+.card{
+  overflow:hidden;
+}
+
+.card>header{
+  padding:15px 16px;
+  border-bottom:1px solid var(--line);
+}
+
+.card h3{
+  margin:0 0 6px;
+  font-size:1.12rem;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.table{
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  min-width:610px;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:9px 10px;
+  border-bottom:1px solid #ffffff12;
+  text-align:center;
+  white-space:nowrap;
+}
+
+th{
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+
+td.team,th:nth-child(2){
+  text-align:left;
+}
+
+.q{
+  background:#4cc38a14;
+}
+
+.third{
+  background:#d8b65f14;
+}
+
+.pos{
+  color:var(--gold);
+  font-weight:800;
+}
+
+.flag{
+  font-size:1.15em;
+  margin-right:7px;
+}
+
+.team,.rt,.bt span{
+  display:flex;
+  align-items:center;
+  gap:2px;
+}
+
+.wide{
+  padding:16px;
+  margin-top:14px;
+}
+
+.badge{
+  display:inline-flex;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 9px;
+  color:var(--muted);
+  font-size:.78rem;
+}
+
+.ok{
+  color:#bff5d7;
+  border-color:#4cc38a66;
+  background:#4cc38a14;
+}
+
+.out{
+  color:#c9ced8;
+}
+
+textarea{
+  width:100%;
+  min-height:190px;
+  resize:vertical;
+  background:#0b0e14;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.block{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:12px;
+}
+
+.block h4{
+  margin:0;
+  padding:12px 14px;
+  background:var(--card2);
+}
+
+.row{
+  display:grid;
+  grid-template-columns:105px minmax(140px,1fr) 52px 18px 52px minmax(140px,1fr) 34px;
+  gap:8px;
+  align-items:center;
+  padding:9px 10px;
+  border-top:1px solid #ffffff12;
+}
+
+.koRow{
+  grid-template-columns:140px minmax(140px,1fr) 52px 18px 52px minmax(140px,1fr) 34px minmax(150px,auto);
+}
+
+.meta{
+  color:var(--muted);
+  font-size:.78rem;
+}
+
+.rt.r{
+  justify-content:flex-end;
+  text-align:right;
+}
+
+input,select{
+  background:#0b0e14;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px;
+  text-align:center;
+  width:100%;
+}
+
+select{
+  text-align:left;
+}
+
+.x{
+  color:var(--gold);
+  font-weight:800;
+  text-align:center;
+}
+
+.bracket{
+  display:grid;
+  grid-template-columns:760px 250px 760px;
+  gap:14px;
+  width:max-content;
+  min-width:100%;
+  overflow-x:auto;
+  padding-bottom:12px;
+}
+
+.side{
+  width:760px;
+  padding:14px;
+}
+
+.center{
+  width:250px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12px;
+}
+
+.heads,.tree{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+
+.heads{
+  margin-bottom:10px;
+}
+
+.heads span,.label{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  font-size:.66rem;
+  text-align:center;
+  font-weight:800;
+}
+
+.tree{
+  grid-template-rows:repeat(8,minmax(116px,auto));
+}
+
+.slot{
+  display:flex;
+  align-items:center;
+}
+
+.match{
+  width:100%;
+  border-radius:14px;
+  padding:10px;
+}
+
+.match header{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:.72rem;
+  margin-bottom:6px;
+  gap:8px;
+}
+
+.match header b{
+  font-weight:700;
+}
+
+.src{
+  color:#747e90;
+  font-size:.68rem;
+  margin-bottom:6px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.bt{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 28px;
+  gap:6px;
+  align-items:center;
+  background:#0b0e14;
+  border:1px solid #ffffff13;
+  border-radius:10px;
+  padding:8px 9px;
+  margin-top:5px;
+}
+
+.bt span{
+  min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.bt.win{
+  border-color:#4cc38a77;
+  background:#4cc38a1a;
+}
+
+.bt b{
+  text-align:right;
+}
+
+.champ{
+  background:var(--card2);
+  padding:12px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,20px);
+  opacity:0;
+  transition:.2s;
+  background:#0b0e14;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 14px;
+  z-index:20;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+@media(max-width:1100px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero,.head{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
+@media(max-width:760px){
+  .wrap{
+    width:min(100% - 18px,1760px);
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    gap:12px;
+  }
+
+  .saved{
+    white-space:normal;
+  }
+
+  .row,
+  .koRow{
+    grid-template-columns:1fr 44px 18px 44px 1fr 32px;
+  }
+
+  .meta,
+  select{
+    grid-column:1/-1;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+  }
+
+  .bracket{
+    display:grid;
+    grid-template-columns:620px 220px 620px;
+    gap:12px;
+    width:100%;
+    min-width:0;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:14px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .side{
+    width:620px;
+    padding:10px;
+    scroll-snap-align:start;
+  }
+
+  .center{
+    width:220px;
+    padding:10px;
+    scroll-snap-align:center;
+    order:initial;
+  }
+
+  .heads{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:8px;
+    margin-bottom:8px;
+  }
+
+  .heads span{
+    font-size:.58rem;
+  }
+
+  .tree{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-template-rows:repeat(8,minmax(96px,auto));
+    gap:8px;
+  }
+
+  .slot{
+    display:flex;
+    align-items:center;
+    margin-bottom:0;
+  }
+
+  .match{
+    width:100%;
+    padding:8px;
+    border-radius:12px;
+  }
+
+  .match header{
+    font-size:.64rem;
+    gap:4px;
+  }
+
+  .src{
+    display:block;
+    font-size:.58rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .bt{
+    grid-template-columns:minmax(0,1fr) 22px;
+    padding:6px 7px;
+    font-size:.72rem;
+  }
+
+  .bt span{
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+
+  .bt b{
+    font-size:.75rem;
+  }
+
+  .flag{
+    margin-right:4px;
+    font-size:1em;
+  }
+
+  .champ{
+    padding:10px;
+  }
+}
 </style>
 </head>
+
 <body>
 <div class="wrap">
-<header class="hero"><div class="brand"><div class="logo">🏆</div><div><h1>Copa 26 Tracker</h1><p class="sub">Grupos, melhores terceiros e chaveamento do mata-mata da Copa do Mundo 2026.</p></div></div><span id="saved" class="saved">sem alterações salvas</span></header>
-<nav><button class="tab on" data-s="groups">🏟️ Grupos</button><button class="tab" data-s="results">✍️ Atualizar resultados</button><button class="tab" data-s="bracket">🌐 Chaves</button></nav>
-<main id="app"></main>
+  <header class="hero">
+    <div class="brand">
+      <div class="logo">🏆</div>
+      <div>
+        <h1>Copa 26 Tracker</h1>
+        <p class="sub">Grupos, melhores terceiros e chaveamento do mata-mata da Copa do Mundo 2026.</p>
+      </div>
+    </div>
+    <span id="saved" class="saved">sem alterações salvas</span>
+  </header>
+
+  <nav>
+    <button class="tab on" data-s="groups">🏟️ Grupos</button>
+    <button class="tab" data-s="results">✍️ Atualizar resultados</button>
+    <button class="tab" data-s="bracket">🌐 Chaves</button>
+  </nav>
+
+  <main id="app"></main>
 </div>
+
 <div id="toast" class="toast"></div>
+
 <script>
 'use strict';
-const ENG=String.fromCodePoint(0x1F3F4,0xE0067,0xE0062,0xE0065,0xE006E,0xE0067,0xE007F),SCO=String.fromCodePoint(0x1F3F4,0xE0067,0xE0062,0xE0073,0xE0063,0xE0074,0xE007F);
-const DATA={A:[['MEX','🇲🇽','México'],['RSA','🇿🇦','África do Sul'],['KOR','🇰🇷','Coreia do Sul'],['CZE','🇨🇿','Tchéquia']],B:[['CAN','🇨🇦','Canadá'],['BIH','🇧🇦','Bósnia'],['QAT','🇶🇦','Catar'],['SUI','🇨🇭','Suíça']],C:[['BRA','🇧🇷','Brasil'],['MAR','🇲🇦','Marrocos'],['HAI','🇭🇹','Haiti'],['SCO',SCO,'Escócia']],D:[['USA','🇺🇸','Estados Unidos'],['PAR','🇵🇾','Paraguai'],['AUS','🇦🇺','Austrália'],['TUR','🇹🇷','Turquia']],E:[['GER','🇩🇪','Alemanha'],['CUW','🇨🇼','Curaçao'],['CIV','🇨🇮','Costa do Marfim'],['ECU','🇪🇨','Equador']],F:[['NED','🇳🇱','Holanda'],['JPN','🇯🇵','Japão'],['SWE','🇸🇪','Suécia'],['TUN','🇹🇳','Tunísia']],G:[['BEL','🇧🇪','Bélgica'],['EGY','🇪🇬','Egito'],['IRN','🇮🇷','Irã'],['NZL','🇳🇿','Nova Zelândia']],H:[['ESP','🇪🇸','Espanha'],['CPV','🇨🇻','Cabo Verde'],['KSA','🇸🇦','Arábia Saudita'],['URU','🇺🇾','Uruguai']],I:[['FRA','🇫🇷','França'],['SEN','🇸🇳','Senegal'],['IRQ','🇮🇶','Iraque'],['NOR','🇳🇴','Noruega']],J:[['ARG','🇦🇷','Argentina'],['ALG','🇩🇿','Argélia'],['AUT','🇦🇹','Áustria'],['JOR','🇯🇴','Jordânia']],K:[['POR','🇵🇹','Portugal'],['COD','🇨🇩','RD Congo'],['UZB','🇺🇿','Uzbequistão'],['COL','🇨🇴','Colômbia']],L:[['ENG',ENG,'Inglaterra'],['CRO','🇭🇷','Croácia'],['GHA','🇬🇭','Gana'],['PAN','🇵🇦','Panamá']]};
-const letters=Object.keys(DATA),T={},G={};for(const g of letters){G[g]=DATA[g].map(x=>x[0]);for(const [id,flag,name] of DATA[g])T[id]={flag,name,group:g}}
-const pat=[[0,1],[2,3],[0,2],[3,1],[3,0],[1,2]],M=[];for(const g of letters)pat.forEach((p,i)=>M.push({id:`G-${g}-${i+1}`,g,home:G[g][p[0]],away:G[g][p[1]],label:`Jogo ${i+1}`}));
-const KO=[['R32-1','16 avos','Jogo 1','1E','T:E:ABCDF'],['R32-2','16 avos','Jogo 2','1I','T:I:CDFGH'],['R32-3','16 avos','Jogo 3','2A','2B'],['R32-4','16 avos','Jogo 4','1F','2C'],['R32-5','16 avos','Jogo 5','2K','2L'],['R32-6','16 avos','Jogo 6','1H','2J'],['R32-7','16 avos','Jogo 7','1D','T:D:BEFIJ'],['R32-8','16 avos','Jogo 8','1G','T:G:AEHIJ'],['R32-9','16 avos','Jogo 9','1C','2F'],['R32-10','16 avos','Jogo 10','2E','2I'],['R32-11','16 avos','Jogo 11','1A','T:A:CEFHI'],['R32-12','16 avos','Jogo 12','1L','T:L:EHIJK'],['R32-13','16 avos','Jogo 13','1J','2H'],['R32-14','16 avos','Jogo 14','2D','2G'],['R32-15','16 avos','Jogo 15','1B','T:B:EFGIJ'],['R32-16','16 avos','Jogo 16','1K','T:K:DEIJL'],['R16-1','Oitavas','Jogo 1','W:R32-1','W:R32-2'],['R16-2','Oitavas','Jogo 2','W:R32-3','W:R32-4'],['R16-3','Oitavas','Jogo 3','W:R32-5','W:R32-6'],['R16-4','Oitavas','Jogo 4','W:R32-7','W:R32-8'],['R16-5','Oitavas','Jogo 5','W:R32-9','W:R32-10'],['R16-6','Oitavas','Jogo 6','W:R32-11','W:R32-12'],['R16-7','Oitavas','Jogo 7','W:R32-13','W:R32-14'],['R16-8','Oitavas','Jogo 8','W:R32-15','W:R32-16'],['QF-1','Quartas','Jogo 1','W:R16-1','W:R16-2'],['QF-2','Quartas','Jogo 2','W:R16-3','W:R16-4'],['QF-3','Quartas','Jogo 3','W:R16-5','W:R16-6'],['QF-4','Quartas','Jogo 4','W:R16-7','W:R16-8'],['SF-1','Semi','Jogo 1','W:QF-1','W:QF-2'],['SF-2','Semi','Jogo 2','W:QF-3','W:QF-4'],['3P-1','3º lugar','Disputa','L:SF-1','L:SF-2'],['FINAL','Final','Final','W:SF-1','W:SF-2']].map(x=>({id:x[0],stage:x[1],name:x[2],home:x[3],away:x[4]}));
-const koBy=Object.fromEntries(KO.map(m=>[m.id,m])),STORE='copa26-state-v3';let state=load(),screen='groups';
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-function load(){try{return{groupResults:{},knockoutResults:{},updatedAt:null,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch{return{groupResults:{},knockoutResults:{},updatedAt:null}}}
-function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(STORE,JSON.stringify(state));badge()}
-function badge(){$('#saved').textContent=state.updatedAt?'salvo às '+new Date(state.updatedAt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}):'sem alterações salvas'}
-function lab(id){return id&&T[id]?`<span class="flag">${T[id].flag}</span><span>${T[id].name}</span>`:'<span class="muted">A definir</span>'}
-function plain(id){return id&&T[id]?`${T[id].flag} ${T[id].name}`:'A definir'}
-function num(v){if(v===''||v==null)return null;v=Number(v);return Number.isInteger(v)&&v>=0?v:null}
-function gr(id){return state.groupResults[id]||{homeGoals:null,awayGoals:null}}
-function kr(id){return state.knockoutResults[id]||{homeGoals:null,awayGoals:null,winner:null}}
-function done(r){return Number.isInteger(r?.homeGoals)&&Number.isInteger(r?.awayGoals)}
-function table(){const out={};for(const g of letters){const t=Object.fromEntries(G[g].map(id=>[id,{team:id,group:g,p:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0}]));M.filter(m=>m.g===g).forEach(m=>{const r=gr(m.id);if(!done(r))return;let h=t[m.home],a=t[m.away];h.p++;a.p++;h.gf+=r.homeGoals;h.ga+=r.awayGoals;a.gf+=r.awayGoals;a.ga+=r.homeGoals;if(r.homeGoals>r.awayGoals){h.w++;h.pts+=3;a.l++}else if(r.homeGoals<r.awayGoals){a.w++;a.pts+=3;h.l++}else{h.d++;a.d++;h.pts++;a.pts++}});Object.values(t).forEach(x=>x.gd=x.gf-x.ga);out[g]=Object.values(t).sort(cmp(g))}return out}
-function cmp(g){return(a,b)=>b.pts-a.pts||h2h(g,a.team,b.team)||b.gd-a.gd||b.gf-a.gf||T[a.team].name.localeCompare(T[b.team].name,'pt-BR')}
-function h2h(g,a,b){const m=M.find(x=>x.g===g&&((x.home===a&&x.away===b)||(x.home===b&&x.away===a)));const r=m&&gr(m.id);if(!m||!done(r)||r.homeGoals===r.awayGoals)return 0;const w=r.homeGoals>r.awayGoals?m.home:m.away;return w===a?-1:1}
-function thirds(tab){return letters.map(g=>tab[g][2]).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||T[a.team].name.localeCompare(T[b.team].name,'pt-BR'))}
-function ctx(){const standings=table(),rank=thirds(standings),top=rank.slice(0,8),groups=top.map(x=>x.group);return{standings,rank,top,thirdBy:Object.fromEntries(top.map(x=>[x.group,x.team])),thirdKey:groups.slice().sort().join(''),thirdMap:thirdMap(groups)}}
-function thirdMap(groups){const slots=KO.filter(m=>m.away?.startsWith('T:')).map(m=>{let[,slot,elig]=m.away.split(':');return{slot,elig:[...elig]}}),order=[...slots].sort((a,b)=>a.elig.filter(x=>groups.includes(x)).length-b.elig.filter(x=>groups.includes(x)).length),out={},used=new Set();function back(i){if(i===order.length)return true;const s=order[i];for(const g of groups)if(!used.has(g)&&s.elig.includes(g)){used.add(g);out[s.slot]=g;if(back(i+1))return true;used.delete(g);delete out[s.slot]}return false}back(0);return out}
-function source(s,c){if(!s)return null;if(/^\d[A-L]$/.test(s))return c.standings[s[1]]?.[Number(s[0])-1]?.team||null;if(s.startsWith('T:')){let slot=s.split(':')[1];return c.thirdBy[c.thirdMap[slot]]||null}if(s.startsWith('W:'))return winner(s.slice(2),c);if(s.startsWith('L:'))return loser(s.slice(2),c);return null}
-function src(s){if(/^\d[A-L]$/.test(s))return s;if(s.startsWith('T:'))return'3º '+s.split(':')[2];if(s.startsWith('W:'))return'Venc. '+s.slice(2);if(s.startsWith('L:'))return'Perd. '+s.slice(2);return s}
-function teams(m,c=ctx()){return{home:source(m.home,c),away:source(m.away,c),homeSource:src(m.home),awaySource:src(m.away)}}
-function winner(id,c=ctx()){const m=koBy[id];if(!m)return null;const tm=teams(m,c),r=kr(id);if(!tm.home||!tm.away||!done(r))return null;if(r.homeGoals>r.awayGoals)return tm.home;if(r.homeGoals<r.awayGoals)return tm.away;return(r.winner===tm.home||r.winner===tm.away)?r.winner:null}
-function loser(id,c=ctx()){const tm=teams(koBy[id],c),w=winner(id,c);return w&&tm.home&&tm.away?(w===tm.home?tm.away:tm.home):null}
-function champ(c=ctx()){return winner('FINAL',c)}
-function render(){$$('.tab').forEach(b=>b.classList.toggle('on',b.dataset.s===screen));const c=ctx();if(screen==='groups')groups(c);if(screen==='results')results(c);if(screen==='bracket')bracket(c);badge()}
-function groups(c){$('#app').innerHTML=`<section class="head"><div><p class="eyebrow">Fase de grupos</p><h2>Classificação ao vivo</h2></div><span class="muted">1º e 2º passam · 8 melhores terceiros passam</span></section><section class="grid">${letters.map(g=>groupCard(g,c)).join('')}</section>${thirdCard(c)}`}
-function groupCard(g,c){return`<article class="card"><header><h3>Grupo ${g}</h3><span class="muted">${G[g].map(plain).join(' · ')}</span></header><div class="table"><table><thead><tr><th>#</th><th>Seleção</th><th>J</th><th>Pts</th><th>V</th><th>E</th><th>D</th><th>GP</th><th>GC</th><th>SG</th></tr></thead><tbody>${c.standings[g].map((s,i)=>`<tr class="${i<2?'q':i===2?'third':''}"><td class="pos">${i+1}</td><td class="team">${lab(s.team)}</td><td>${s.p}</td><td>${s.pts}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd}</td></tr>`).join('')}</tbody></table></div></article>`}
-function thirdCard(c){return`<section class="wide"><div class="head"><div><p class="eyebrow">8 melhores terceiros</p><h2>Ranking dos terceiros</h2></div><span class="badge">${c.thirdKey||'—'}</span></div><div class="table"><table><thead><tr><th>#</th><th>Grupo</th><th>Seleção</th><th>J</th><th>Pts</th><th>SG</th><th>GP</th><th>Status</th></tr></thead><tbody>${c.rank.map((s,i)=>`<tr class="${i<8?'q':''}"><td class="pos">${i+1}</td><td>${s.group}</td><td class="team">${lab(s.team)}</td><td>${s.p}</td><td>${s.pts}</td><td>${s.gd}</td><td>${s.gf}</td><td><span class="badge ${i<8?'ok':'out'}">${i<8?'passando':'fora'}</span></td></tr>`).join('')}</tbody></table></div></section>`}
-function results(c){$('#app').innerHTML=`<section class="head"><div><p class="eyebrow">Atualizar resultados</p><h2>Preencha jogo a jogo ou cole JSON</h2></div><div class="actions"><button id="ex">Carregar exemplo</button><button class="danger" id="clear">Limpar tudo</button></div></section><section class="wide"><p class="eyebrow">Importar / exportar</p><textarea id="json" placeholder="Cole aqui o JSON"></textarea><div class="actions"><button class="primary" id="imp">Importar</button><button id="exp">Exportar</button><button id="copy">Copiar</button></div></section><section class="wide"><p class="eyebrow">Fase de grupos</p>${letters.map(g=>`<div class="block"><h4>Grupo ${g}</h4>${M.filter(m=>m.g===g).map(rowG).join('')}</div>`).join('')}</section><section class="wide"><p class="eyebrow">Mata-mata</p>${KO.map(m=>rowK(m,c)).join('')}</section>`;bindResults()}
-function rowG(m){const r=gr(m.id);return`<div class="row"><div class="meta"><b>${m.label}</b><br>${m.id}</div><div class="rt r">${lab(m.home)}</div><input type="number" min="0" value="${r.homeGoals??''}" data-t="g" data-id="${m.id}" data-k="homeGoals"><span class="x">×</span><input type="number" min="0" value="${r.awayGoals??''}" data-t="g" data-id="${m.id}" data-k="awayGoals"><div class="rt">${lab(m.away)}</div><button data-clear-g="${m.id}">×</button></div>`}
-function rowK(m,c){const tm=teams(m,c),r=kr(m.id),tie=done(r)&&r.homeGoals===r.awayGoals&&tm.home&&tm.away,dis=!tm.home||!tm.away?'disabled':'';return`<div class="row koRow"><div class="meta"><b>${m.stage} · ${m.name}</b></div><div class="rt r">${tm.home?lab(tm.home):'<span class="muted">'+tm.homeSource+'</span>'}</div><input type="number" min="0" value="${r.homeGoals??''}" data-t="k" data-id="${m.id}" data-k="homeGoals" ${dis}><span class="x">×</span><input type="number" min="0" value="${r.awayGoals??''}" data-t="k" data-id="${m.id}" data-k="awayGoals" ${dis}><div class="rt">${tm.away?lab(tm.away):'<span class="muted">'+tm.awaySource+'</span>'}</div><button data-clear-k="${m.id}">×</button>${tie?`<select data-win="${m.id}"><option value="">vencedor nos pênaltis</option><option value="${tm.home}" ${r.winner===tm.home?'selected':''}>${T[tm.home].name}</option><option value="${tm.away}" ${r.winner===tm.away?'selected':''}>${T[tm.away].name}</option></select>`:''}</div>`}
-function bindResults(){$$('input[data-t]').forEach(i=>i.onchange=e=>{const r=e.target.dataset.t==='g'?gr(e.target.dataset.id):kr(e.target.dataset.id);r[e.target.dataset.k]=num(e.target.value);(e.target.dataset.t==='g'?state.groupResults:state.knockoutResults)[e.target.dataset.id]=r;save();render()});$$('[data-win]').forEach(s=>s.onchange=e=>{const r=kr(e.target.dataset.win);r.winner=e.target.value||null;state.knockoutResults[e.target.dataset.win]=r;save();render()});$$('[data-clear-g]').forEach(b=>b.onclick=()=>{delete state.groupResults[b.dataset.clearG];save();render()});$$('[data-clear-k]').forEach(b=>b.onclick=()=>{delete state.knockoutResults[b.dataset.clearK];save();render()});$('#exp').onclick=()=>$('#json').value=JSON.stringify(exportObj(),null,2);$('#copy').onclick=async()=>{const j=JSON.stringify(exportObj(),null,2);$('#json').value=j;try{await navigator.clipboard.writeText(j);toast('JSON copiado')}catch{toast('JSON gerado')}};$('#imp').onclick=importJson;$('#clear').onclick=()=>{if(confirm('Limpar tudo?')){state={groupResults:{},knockoutResults:{},updatedAt:null};save();render()}};$('#ex').onclick=example}
-function exportObj(){return{app:'copa26-tracker',version:3,groupResults:state.groupResults,knockoutResults:state.knockoutResults}}
-function importJson(){try{const d=JSON.parse($('#json').value);if(d.groupResults)state.groupResults=d.groupResults;if(d.knockoutResults)state.knockoutResults=d.knockoutResults;save();render();toast('JSON importado')}catch(e){toast('JSON inválido')}}
-function example(){for(const m of M)state.groupResults[m.id]={homeGoals:Math.floor(Math.random()*4),awayGoals:Math.floor(Math.random()*4)};save();render();toast('Exemplo carregado')}
-function bracket(c){const ch=champ(c);$('#app').innerHTML=`<section class="head"><div><p class="eyebrow">Mata-mata</p><h2>Chaves</h2></div><div class="champ"><span class="muted">Campeão</span><br><b>${ch?plain(ch):'A definir'}</b></div></section><section class="wide"><b>Anexo C / terceiros:</b> <span class="muted">${c.thirdKey||'—'} · ${Object.entries(c.thirdMap).map(([s,g])=>'slot '+s+'→3'+g).join(' · ')||'aguardando'}</span></section><section class="bracket">${side([['16 avos',KO.slice(0,8).map(x=>x.id),[1,2,3,4,5,6,7,8],1],['Oitavas',['R16-1','R16-2','R16-3','R16-4'],[1,3,5,7],2],['Quartas',['QF-1','QF-2'],[1,5],4],['Semi',['SF-1'],[1],8]],c)}<div class="center"><div class="champ"><div class="label">Final</div>${card(koBy.FINAL,c)}</div><div class="champ"><div class="label">3º lugar</div>${card(koBy['3P-1'],c)}</div></div>${side([['Semi',['SF-2'],[1],8],['Quartas',['QF-3','QF-4'],[1,5],4],['Oitavas',['R16-5','R16-6','R16-7','R16-8'],[1,3,5,7],2],['16 avos',KO.slice(8,16).map(x=>x.id),[1,2,3,4,5,6,7,8],1]],c)}</section>`}
-function side(cols,c){return`<section class="side"><div class="heads">${cols.map(x=>`<span>${x[0]}</span>`).join('')}</div><div class="tree">${cols.map((col,i)=>col[1].map((id,j)=>`<div class="slot" style="grid-column:${i+1};grid-row:${col[2][j]}/span ${col[3]}">${card(koBy[id],c)}</div>`).join('')).join('')}</div></section>`}
-function card(m,c){const tm=teams(m,c),r=kr(m.id),w=winner(m.id,c),srcs=[tm.homeSource,tm.awaySource].filter(Boolean).join(' · ');return`<article class="match"><header><span>${m.name}</span><b>${m.stage}</b></header>${srcs?`<div class="src">${srcs}</div>`:''}<div class="bt ${w===tm.home?'win':''}"><span>${tm.home?lab(tm.home):'<span class="muted">'+tm.homeSource+'</span>'}</span><b>${done(r)?r.homeGoals:'–'}</b></div><div class="bt ${w===tm.away?'win':''}"><span>${tm.away?lab(tm.away):'<span class="muted">'+tm.awaySource+'</span>'}</span><b>${done(r)?r.awayGoals:'–'}</b></div>${done(r)&&r.homeGoals===r.awayGoals&&!w&&tm.home&&tm.away?'<span class="muted">definir pênaltis</span>':''}</article>`}
-function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2200)}
-$$('.tab').forEach(b=>b.onclick=()=>{screen=b.dataset.s;render()});
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
+
+const ENG = String.fromCodePoint(0x1F3F4,0xE0067,0xE0062,0xE0065,0xE006E,0xE0067,0xE007F);
+const SCO = String.fromCodePoint(0x1F3F4,0xE0067,0xE0062,0xE0073,0xE0063,0xE0074,0xE007F);
+
+const DATA = {
+  A:[['MEX','🇲🇽','México'],['RSA','🇿🇦','África do Sul'],['KOR','🇰🇷','Coreia do Sul'],['CZE','🇨🇿','Tchéquia']],
+  B:[['CAN','🇨🇦','Canadá'],['BIH','🇧🇦','Bósnia'],['QAT','🇶🇦','Catar'],['SUI','🇨🇭','Suíça']],
+  C:[['BRA','🇧🇷','Brasil'],['MAR','🇲🇦','Marrocos'],['HAI','🇭🇹','Haiti'],['SCO',SCO,'Escócia']],
+  D:[['USA','🇺🇸','Estados Unidos'],['PAR','🇵🇾','Paraguai'],['AUS','🇦🇺','Austrália'],['TUR','🇹🇷','Turquia']],
+  E:[['GER','🇩🇪','Alemanha'],['CUW','🇨🇼','Curaçao'],['CIV','🇨🇮','Costa do Marfim'],['ECU','🇪🇨','Equador']],
+  F:[['NED','🇳🇱','Holanda'],['JPN','🇯🇵','Japão'],['SWE','🇸🇪','Suécia'],['TUN','🇹🇳','Tunísia']],
+  G:[['BEL','🇧🇪','Bélgica'],['EGY','🇪🇬','Egito'],['IRN','🇮🇷','Irã'],['NZL','🇳🇿','Nova Zelândia']],
+  H:[['ESP','🇪🇸','Espanha'],['CPV','🇨🇻','Cabo Verde'],['KSA','🇸🇦','Arábia Saudita'],['URU','🇺🇾','Uruguai']],
+  I:[['FRA','🇫🇷','França'],['SEN','🇸🇳','Senegal'],['IRQ','🇮🇶','Iraque'],['NOR','🇳🇴','Noruega']],
+  J:[['ARG','🇦🇷','Argentina'],['ALG','🇩🇿','Argélia'],['AUT','🇦🇹','Áustria'],['JOR','🇯🇴','Jordânia']],
+  K:[['POR','🇵🇹','Portugal'],['COD','🇨🇩','RD Congo'],['UZB','🇺🇿','Uzbequistão'],['COL','🇨🇴','Colômbia']],
+  L:[['ENG',ENG,'Inglaterra'],['CRO','🇭🇷','Croácia'],['GHA','🇬🇭','Gana'],['PAN','🇵🇦','Panamá']]
+};
+
+const letters = Object.keys(DATA);
+const T = {};
+const G = {};
+
+for (const g of letters) {
+  G[g] = DATA[g].map(x => x[0]);
+
+  for (const [id,flag,name] of DATA[g]) {
+    T[id] = { flag, name, group:g };
+  }
+}
+
+const pattern = [[0,1],[2,3],[0,2],[3,1],[3,0],[1,2]];
+const M = [];
+
+for (const g of letters) {
+  pattern.forEach((p,i) => {
+    M.push({
+      id:`G-${g}-${i+1}`,
+      g,
+      home:G[g][p[0]],
+      away:G[g][p[1]],
+      label:`Jogo ${i+1}`
+    });
+  });
+}
+
+const KO = [
+  ['R32-1','16 avos','Jogo 1','1E','T:E:ABCDF'],
+  ['R32-2','16 avos','Jogo 2','1I','T:I:CDFGH'],
+  ['R32-3','16 avos','Jogo 3','2A','2B'],
+  ['R32-4','16 avos','Jogo 4','1F','2C'],
+  ['R32-5','16 avos','Jogo 5','2K','2L'],
+  ['R32-6','16 avos','Jogo 6','1H','2J'],
+  ['R32-7','16 avos','Jogo 7','1D','T:D:BEFIJ'],
+  ['R32-8','16 avos','Jogo 8','1G','T:G:AEHIJ'],
+  ['R32-9','16 avos','Jogo 9','1C','2F'],
+  ['R32-10','16 avos','Jogo 10','2E','2I'],
+  ['R32-11','16 avos','Jogo 11','1A','T:A:CEFHI'],
+  ['R32-12','16 avos','Jogo 12','1L','T:L:EHIJK'],
+  ['R32-13','16 avos','Jogo 13','1J','2H'],
+  ['R32-14','16 avos','Jogo 14','2D','2G'],
+  ['R32-15','16 avos','Jogo 15','1B','T:B:EFGIJ'],
+  ['R32-16','16 avos','Jogo 16','1K','T:K:DEIJL'],
+
+  ['R16-1','Oitavas','Jogo 1','W:R32-1','W:R32-2'],
+  ['R16-2','Oitavas','Jogo 2','W:R32-3','W:R32-4'],
+  ['R16-3','Oitavas','Jogo 3','W:R32-5','W:R32-6'],
+  ['R16-4','Oitavas','Jogo 4','W:R32-7','W:R32-8'],
+  ['R16-5','Oitavas','Jogo 5','W:R32-9','W:R32-10'],
+  ['R16-6','Oitavas','Jogo 6','W:R32-11','W:R32-12'],
+  ['R16-7','Oitavas','Jogo 7','W:R32-13','W:R32-14'],
+  ['R16-8','Oitavas','Jogo 8','W:R32-15','W:R32-16'],
+
+  ['QF-1','Quartas','Jogo 1','W:R16-1','W:R16-2'],
+  ['QF-2','Quartas','Jogo 2','W:R16-3','W:R16-4'],
+  ['QF-3','Quartas','Jogo 3','W:R16-5','W:R16-6'],
+  ['QF-4','Quartas','Jogo 4','W:R16-7','W:R16-8'],
+
+  ['SF-1','Semi','Jogo 1','W:QF-1','W:QF-2'],
+  ['SF-2','Semi','Jogo 2','W:QF-3','W:QF-4'],
+
+  ['3P-1','3º lugar','Disputa','L:SF-1','L:SF-2'],
+  ['FINAL','Final','Final','W:SF-1','W:SF-2']
+].map(x => ({
+  id:x[0],
+  stage:x[1],
+  name:x[2],
+  home:x[3],
+  away:x[4]
+}));
+
+const koBy = Object.fromEntries(KO.map(m => [m.id,m]));
+const STORE = 'copa26-state-v3';
+
+let state = load();
+let screen = 'groups';
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+
+function load(){
+  try {
+    return {
+      groupResults:{},
+      knockoutResults:{},
+      updatedAt:null,
+      ...JSON.parse(localStorage.getItem(STORE) || '{}')
+    };
+  } catch {
+    return {
+      groupResults:{},
+      knockoutResults:{},
+      updatedAt:null
+    };
+  }
+}
+
+function save(){
+  state.updatedAt = new Date().toISOString();
+  localStorage.setItem(STORE,JSON.stringify(state));
+  badge();
+}
+
+function badge(){
+  $('#saved').textContent = state.updatedAt
+    ? 'salvo às ' + new Date(state.updatedAt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})
+    : 'sem alterações salvas';
+}
+
+function lab(id){
+  return id && T[id]
+    ? `<span class="flag">${T[id].flag}</span><span>${T[id].name}</span>`
+    : '<span class="muted">A definir</span>';
+}
+
+function plain(id){
+  return id && T[id]
+    ? `${T[id].flag} ${T[id].name}`
+    : 'A definir';
+}
+
+function num(v){
+  if (v === '' || v == null) return null;
+  v = Number(v);
+  return Number.isInteger(v) && v >= 0 ? v : null;
+}
+
+function gr(id){
+  return state.groupResults[id] || {homeGoals:null,awayGoals:null};
+}
+
+function kr(id){
+  return state.knockoutResults[id] || {homeGoals:null,awayGoals:null,winner:null};
+}
+
+function done(r){
+  return Number.isInteger(r?.homeGoals) && Number.isInteger(r?.awayGoals);
+}
+
+function table(){
+  const out = {};
+
+  for (const g of letters) {
+    const t = Object.fromEntries(
+      G[g].map(id => [id,{
+        team:id,
+        group:g,
+        p:0,
+        w:0,
+        d:0,
+        l:0,
+        gf:0,
+        ga:0,
+        gd:0,
+        pts:0
+      }])
+    );
+
+    M.filter(m => m.g === g).forEach(m => {
+      const r = gr(m.id);
+      if (!done(r)) return;
+
+      let h = t[m.home];
+      let a = t[m.away];
+
+      h.p++;
+      a.p++;
+
+      h.gf += r.homeGoals;
+      h.ga += r.awayGoals;
+
+      a.gf += r.awayGoals;
+      a.ga += r.homeGoals;
+
+      if (r.homeGoals > r.awayGoals) {
+        h.w++;
+        h.pts += 3;
+        a.l++;
+      } else if (r.homeGoals < r.awayGoals) {
+        a.w++;
+        a.pts += 3;
+        h.l++;
+      } else {
+        h.d++;
+        a.d++;
+        h.pts++;
+        a.pts++;
+      }
+    });
+
+    Object.values(t).forEach(x => x.gd = x.gf - x.ga);
+    out[g] = Object.values(t).sort(cmp(g));
+  }
+
+  return out;
+}
+
+function cmp(g){
+  return (a,b) =>
+    b.pts - a.pts ||
+    h2h(g,a.team,b.team) ||
+    b.gd - a.gd ||
+    b.gf - a.gf ||
+    T[a.team].name.localeCompare(T[b.team].name,'pt-BR');
+}
+
+function h2h(g,a,b){
+  const m = M.find(x =>
+    x.g === g &&
+    ((x.home === a && x.away === b) || (x.home === b && x.away === a))
+  );
+
+  const r = m && gr(m.id);
+
+  if (!m || !done(r) || r.homeGoals === r.awayGoals) return 0;
+
+  const w = r.homeGoals > r.awayGoals ? m.home : m.away;
+  return w === a ? -1 : 1;
+}
+
+function thirds(tab){
+  return letters
+    .map(g => tab[g][2])
+    .sort((a,b) =>
+      b.pts - a.pts ||
+      b.gd - a.gd ||
+      b.gf - a.gf ||
+      T[a.team].name.localeCompare(T[b.team].name,'pt-BR')
+    );
+}
+
+function ctx(){
+  const standings = table();
+  const rank = thirds(standings);
+  const top = rank.slice(0,8);
+  const groups = top.map(x => x.group);
+
+  return {
+    standings,
+    rank,
+    top,
+    thirdBy:Object.fromEntries(top.map(x => [x.group,x.team])),
+    thirdKey:groups.slice().sort().join(''),
+    thirdMap:thirdMap(groups)
+  };
+}
+
+function thirdMap(groups){
+  const slots = KO
+    .filter(m => m.away?.startsWith('T:'))
+    .map(m => {
+      let [,slot,elig] = m.away.split(':');
+      return {slot,elig:[...elig]};
+    });
+
+  const order = [...slots].sort((a,b) =>
+    a.elig.filter(x => groups.includes(x)).length -
+    b.elig.filter(x => groups.includes(x)).length
+  );
+
+  const out = {};
+  const used = new Set();
+
+  function back(i){
+    if (i === order.length) return true;
+
+    const s = order[i];
+
+    for (const g of groups) {
+      if (!used.has(g) && s.elig.includes(g)) {
+        used.add(g);
+        out[s.slot] = g;
+
+        if (back(i+1)) return true;
+
+        used.delete(g);
+        delete out[s.slot];
+      }
+    }
+
+    return false;
+  }
+
+  back(0);
+  return out;
+}
+
+function source(s,c){
+  if (!s) return null;
+
+  if (/^\d[A-L]$/.test(s)) {
+    return c.standings[s[1]]?.[Number(s[0])-1]?.team || null;
+  }
+
+  if (s.startsWith('T:')) {
+    let slot = s.split(':')[1];
+    return c.thirdBy[c.thirdMap[slot]] || null;
+  }
+
+  if (s.startsWith('W:')) return winner(s.slice(2),c);
+  if (s.startsWith('L:')) return loser(s.slice(2),c);
+
+  return null;
+}
+
+function src(s){
+  if (/^\d[A-L]$/.test(s)) return s;
+  if (s.startsWith('T:')) return '3º ' + s.split(':')[2];
+  if (s.startsWith('W:')) return 'Venc. ' + s.slice(2);
+  if (s.startsWith('L:')) return 'Perd. ' + s.slice(2);
+  return s;
+}
+
+function teams(m,c=ctx()){
+  return {
+    home:source(m.home,c),
+    away:source(m.away,c),
+    homeSource:src(m.home),
+    awaySource:src(m.away)
+  };
+}
+
+function winner(id,c=ctx()){
+  const m = koBy[id];
+  if (!m) return null;
+
+  const tm = teams(m,c);
+  const r = kr(id);
+
+  if (!tm.home || !tm.away || !done(r)) return null;
+
+  if (r.homeGoals > r.awayGoals) return tm.home;
+  if (r.homeGoals < r.awayGoals) return tm.away;
+
+  return (r.winner === tm.home || r.winner === tm.away) ? r.winner : null;
+}
+
+function loser(id,c=ctx()){
+  const tm = teams(koBy[id],c);
+  const w = winner(id,c);
+
+  return w && tm.home && tm.away
+    ? (w === tm.home ? tm.away : tm.home)
+    : null;
+}
+
+function champ(c=ctx()){
+  return winner('FINAL',c);
+}
+
+function render(){
+  $$('.tab').forEach(b => b.classList.toggle('on',b.dataset.s === screen));
+
+  const c = ctx();
+
+  if (screen === 'groups') groups(c);
+  if (screen === 'results') results(c);
+  if (screen === 'bracket') bracket(c);
+
+  badge();
+}
+
+function groups(c){
+  $('#app').innerHTML = `
+    <section class="head">
+      <div>
+        <p class="eyebrow">Fase de grupos</p>
+        <h2>Classificação ao vivo</h2>
+      </div>
+      <span class="muted">1º e 2º passam · 8 melhores terceiros passam</span>
+    </section>
+
+    <section class="grid">
+      ${letters.map(g => groupCard(g,c)).join('')}
+    </section>
+
+    ${thirdCard(c)}
+  `;
+}
+
+function groupCard(g,c){
+  return `
+    <article class="card">
+      <header>
+        <h3>Grupo ${g}</h3>
+        <span class="muted">${G[g].map(plain).join(' · ')}</span>
+      </header>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Seleção</th>
+              <th>J</th>
+              <th>Pts</th>
+              <th>V</th>
+              <th>E</th>
+              <th>D</th>
+              <th>GP</th>
+              <th>GC</th>
+              <th>SG</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${c.standings[g].map((s,i) => `
+              <tr class="${i<2?'q':i===2?'third':''}">
+                <td class="pos">${i+1}</td>
+                <td class="team">${lab(s.team)}</td>
+                <td>${s.p}</td>
+                <td>${s.pts}</td>
+                <td>${s.w}</td>
+                <td>${s.d}</td>
+                <td>${s.l}</td>
+                <td>${s.gf}</td>
+                <td>${s.ga}</td>
+                <td>${s.gd}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  `;
+}
+
+function thirdCard(c){
+  return `
+    <section class="wide">
+      <div class="head">
+        <div>
+          <p class="eyebrow">8 melhores terceiros</p>
+          <h2>Ranking dos terceiros</h2>
+        </div>
+        <span class="badge">${c.thirdKey || '—'}</span>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Grupo</th>
+              <th>Seleção</th>
+              <th>J</th>
+              <th>Pts</th>
+              <th>SG</th>
+              <th>GP</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${c.rank.map((s,i) => `
+              <tr class="${i<8?'q':''}">
+                <td class="pos">${i+1}</td>
+                <td>${s.group}</td>
+                <td class="team">${lab(s.team)}</td>
+                <td>${s.p}</td>
+                <td>${s.pts}</td>
+                <td>${s.gd}</td>
+                <td>${s.gf}</td>
+                <td>
+                  <span class="badge ${i<8?'ok':'out'}">${i<8?'passando':'fora'}</span>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function results(c){
+  $('#app').innerHTML = `
+    <section class="head">
+      <div>
+        <p class="eyebrow">Atualizar resultados</p>
+        <h2>Preencha jogo a jogo ou cole JSON</h2>
+      </div>
+
+      <div class="actions">
+        <button id="ex">Carregar exemplo</button>
+        <button class="danger" id="clear">Limpar tudo</button>
+      </div>
+    </section>
+
+    <section class="wide">
+      <p class="eyebrow">Importar / exportar</p>
+      <textarea id="json" placeholder="Cole aqui o JSON"></textarea>
+
+      <div class="actions">
+        <button class="primary" id="imp">Importar</button>
+        <button id="exp">Exportar</button>
+        <button id="copy">Copiar</button>
+      </div>
+    </section>
+
+    <section class="wide">
+      <p class="eyebrow">Fase de grupos</p>
+      ${letters.map(g => `
+        <div class="block">
+          <h4>Grupo ${g}</h4>
+          ${M.filter(m => m.g === g).map(rowG).join('')}
+        </div>
+      `).join('')}
+    </section>
+
+    <section class="wide">
+      <p class="eyebrow">Mata-mata</p>
+      ${KO.map(m => rowK(m,c)).join('')}
+    </section>
+  `;
+
+  bindResults();
+}
+
+function rowG(m){
+  const r = gr(m.id);
+
+  return `
+    <div class="row">
+      <div class="meta">
+        <b>${m.label}</b><br>${m.id}
+      </div>
+
+      <div class="rt r">${lab(m.home)}</div>
+
+      <input type="number" min="0" value="${r.homeGoals ?? ''}" data-t="g" data-id="${m.id}" data-k="homeGoals">
+
+      <span class="x">×</span>
+
+      <input type="number" min="0" value="${r.awayGoals ?? ''}" data-t="g" data-id="${m.id}" data-k="awayGoals">
+
+      <div class="rt">${lab(m.away)}</div>
+
+      <button data-clear-g="${m.id}">×</button>
+    </div>
+  `;
+}
+
+function rowK(m,c){
+  const tm = teams(m,c);
+  const r = kr(m.id);
+  const tie = done(r) && r.homeGoals === r.awayGoals && tm.home && tm.away;
+  const dis = !tm.home || !tm.away ? 'disabled' : '';
+
+  return `
+    <div class="row koRow">
+      <div class="meta">
+        <b>${m.stage} · ${m.name}</b>
+      </div>
+
+      <div class="rt r">${tm.home ? lab(tm.home) : '<span class="muted">'+tm.homeSource+'</span>'}</div>
+
+      <input type="number" min="0" value="${r.homeGoals ?? ''}" data-t="k" data-id="${m.id}" data-k="homeGoals" ${dis}>
+
+      <span class="x">×</span>
+
+      <input type="number" min="0" value="${r.awayGoals ?? ''}" data-t="k" data-id="${m.id}" data-k="awayGoals" ${dis}>
+
+      <div class="rt">${tm.away ? lab(tm.away) : '<span class="muted">'+tm.awaySource+'</span>'}</div>
+
+      <button data-clear-k="${m.id}">×</button>
+
+      ${tie ? `
+        <select data-win="${m.id}">
+          <option value="">vencedor nos pênaltis</option>
+          <option value="${tm.home}" ${r.winner===tm.home?'selected':''}>${T[tm.home].name}</option>
+          <option value="${tm.away}" ${r.winner===tm.away?'selected':''}>${T[tm.away].name}</option>
+        </select>
+      ` : ''}
+    </div>
+  `;
+}
+
+function bindResults(){
+  $$('input[data-t]').forEach(i => i.onchange = e => {
+    const r = e.target.dataset.t === 'g'
+      ? gr(e.target.dataset.id)
+      : kr(e.target.dataset.id);
+
+    r[e.target.dataset.k] = num(e.target.value);
+
+    (e.target.dataset.t === 'g'
+      ? state.groupResults
+      : state.knockoutResults)[e.target.dataset.id] = r;
+
+    save();
+    render();
+  });
+
+  $$('[data-win]').forEach(s => s.onchange = e => {
+    const r = kr(e.target.dataset.win);
+    r.winner = e.target.value || null;
+    state.knockoutResults[e.target.dataset.win] = r;
+    save();
+    render();
+  });
+
+  $$('[data-clear-g]').forEach(b => b.onclick = () => {
+    delete state.groupResults[b.dataset.clearG];
+    save();
+    render();
+  });
+
+  $$('[data-clear-k]').forEach(b => b.onclick = () => {
+    delete state.knockoutResults[b.dataset.clearK];
+    save();
+    render();
+  });
+
+  $('#exp').onclick = () => {
+    $('#json').value = JSON.stringify(exportObj(),null,2);
+  };
+
+  $('#copy').onclick = async () => {
+    const j = JSON.stringify(exportObj(),null,2);
+    $('#json').value = j;
+
+    try {
+      await navigator.clipboard.writeText(j);
+      toast('JSON copiado');
+    } catch {
+      toast('JSON gerado');
+    }
+  };
+
+  $('#imp').onclick = importJson;
+
+  $('#clear').onclick = () => {
+    if (confirm('Limpar tudo?')) {
+      state = {
+        groupResults:{},
+        knockoutResults:{},
+        updatedAt:null
+      };
+
+      save();
+      render();
+    }
+  };
+
+  $('#ex').onclick = example;
+}
+
+function exportObj(){
+  return {
+    app:'copa26-tracker',
+    version:3,
+    groupResults:state.groupResults,
+    knockoutResults:state.knockoutResults
+  };
+}
+
+function importJson(){
+  try {
+    const d = JSON.parse($('#json').value);
+
+    if (d.groupResults) state.groupResults = d.groupResults;
+    if (d.knockoutResults) state.knockoutResults = d.knockoutResults;
+
+    save();
+    render();
+    toast('JSON importado');
+  } catch(e) {
+    toast('JSON inválido');
+  }
+}
+
+function example(){
+  for (const m of M) {
+    state.groupResults[m.id] = {
+      homeGoals:Math.floor(Math.random()*4),
+      awayGoals:Math.floor(Math.random()*4)
+    };
+  }
+
+  save();
+  render();
+  toast('Exemplo carregado');
+}
+
+function bracket(c){
+  const ch = champ(c);
+
+  $('#app').innerHTML = `
+    <section class="head">
+      <div>
+        <p class="eyebrow">Mata-mata</p>
+        <h2>Chaves</h2>
+      </div>
+
+      <div class="champ">
+        <span class="muted">Campeão</span><br>
+        <b>${ch ? plain(ch) : 'A definir'}</b>
+      </div>
+    </section>
+
+    <section class="wide">
+      <b>Anexo C / terceiros:</b>
+      <span class="muted">
+        ${c.thirdKey || '—'} ·
+        ${Object.entries(c.thirdMap).map(([s,g]) => 'slot '+s+'→3'+g).join(' · ') || 'aguardando'}
+      </span>
+    </section>
+
+    <section class="bracket">
+      ${side([
+        ['16 avos',KO.slice(0,8).map(x => x.id),[1,2,3,4,5,6,7,8],1],
+        ['Oitavas',['R16-1','R16-2','R16-3','R16-4'],[1,3,5,7],2],
+        ['Quartas',['QF-1','QF-2'],[1,5],4],
+        ['Semi',['SF-1'],[1],8]
+      ],c)}
+
+      <div class="center">
+        <div class="champ">
+          <div class="label">Final</div>
+          ${card(koBy.FINAL,c)}
+        </div>
+
+        <div class="champ">
+          <div class="label">3º lugar</div>
+          ${card(koBy['3P-1'],c)}
+        </div>
+      </div>
+
+      ${side([
+        ['Semi',['SF-2'],[1],8],
+        ['Quartas',['QF-3','QF-4'],[1,5],4],
+        ['Oitavas',['R16-5','R16-6','R16-7','R16-8'],[1,3,5,7],2],
+        ['16 avos',KO.slice(8,16).map(x => x.id),[1,2,3,4,5,6,7,8],1]
+      ],c)}
+    </section>
+  `;
+}
+
+function side(cols,c){
+  return `
+    <section class="side">
+      <div class="heads">
+        ${cols.map(x => `<span>${x[0]}</span>`).join('')}
+      </div>
+
+      <div class="tree">
+        ${cols.map((col,i) =>
+          col[1].map((id,j) => `
+            <div class="slot" style="grid-column:${i+1};grid-row:${col[2][j]}/span ${col[3]}">
+              ${card(koBy[id],c)}
+            </div>
+          `).join('')
+        ).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function card(m,c){
+  const tm = teams(m,c);
+  const r = kr(m.id);
+  const w = winner(m.id,c);
+  const srcs = [tm.homeSource,tm.awaySource].filter(Boolean).join(' · ');
+
+  return `
+    <article class="match">
+      <header>
+        <span>${m.name}</span>
+        <b>${m.stage}</b>
+      </header>
+
+      ${srcs ? `<div class="src">${srcs}</div>` : ''}
+
+      <div class="bt ${w===tm.home?'win':''}">
+        <span>${tm.home ? lab(tm.home) : '<span class="muted">'+tm.homeSource+'</span>'}</span>
+        <b>${done(r) ? r.homeGoals : '–'}</b>
+      </div>
+
+      <div class="bt ${w===tm.away?'win':''}">
+        <span>${tm.away ? lab(tm.away) : '<span class="muted">'+tm.awaySource+'</span>'}</span>
+        <b>${done(r) ? r.awayGoals : '–'}</b>
+      </div>
+
+      ${done(r) && r.homeGoals === r.awayGoals && !w && tm.home && tm.away
+        ? '<span class="muted">definir pênaltis</span>'
+        : ''
+      }
+    </article>
+  `;
+}
+
+function toast(t){
+  const el = $('#toast');
+  el.textContent = t;
+  el.classList.add('show');
+
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => el.classList.remove('show'),2200);
+}
+
+$$('.tab').forEach(b => b.onclick = () => {
+  screen = b.dataset.s;
+  render();
+});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load',() => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
+
 render();
 </script>
 </body>
