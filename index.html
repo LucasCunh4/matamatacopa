@@ -290,7 +290,7 @@ const KO = [
 ];
 
 const koBy = Object.fromEntries(KO.map(m => [m[0],m]));
-const STORE = 'copa26-state-v5';
+const STORE = 'copa26-state-v6';
 
 let state = load();
 let screen = 'bracket';
@@ -304,7 +304,7 @@ function load(){
       groupResults:{},
       knockoutResults:{},
       updatedAt:null,
-      ...JSON.parse(localStorage.getItem(STORE) || localStorage.getItem('copa26-state-v4') || '{}')
+      ...JSON.parse(localStorage.getItem(STORE) || localStorage.getItem('copa26-state-v5') || localStorage.getItem('copa26-state-v4') || '{}')
     };
   }catch{
     return {
@@ -329,13 +329,13 @@ function badge(){
 
 function lab(id){
   return id && T[id]
-    ? `<span class="flag">${T[id][1]}</span><span>${T[id][0]}</span>`
+    ? `<span class="flag">${T[id].flag}</span><span>${T[id].name}</span>`
     : '<span class="muted">A definir</span>';
 }
 
 function plain(id){
   return id && T[id]
-    ? `${T[id][1]} ${T[id][0]}`
+    ? `${T[id].flag} ${T[id].name}`
     : 'A definir';
 }
 
@@ -423,7 +423,7 @@ function cmp(g){
     h2h(g,a.team,b.team) ||
     b.gd - a.gd ||
     b.gf - a.gf ||
-    T[a.team][0].localeCompare(T[b.team][0],'pt-BR');
+    T[a.team].name.localeCompare(T[b.team].name,'pt-BR');
 }
 
 function h2h(g,a,b){
@@ -450,7 +450,7 @@ function thirds(tab){
       b.pts - a.pts ||
       b.gd - a.gd ||
       b.gf - a.gf ||
-      T[a.team][0].localeCompare(T[b.team][0],'pt-BR')
+      T[a.team].name.localeCompare(T[b.team].name,'pt-BR')
     );
 }
 
@@ -855,8 +855,8 @@ function rowK(m,c){
       ${tie ? `
         <select data-win="${m[0]}">
           <option value="">vencedor nos pênaltis</option>
-          <option value="${tm.home}" ${r.winner===tm.home?'selected':''}>${T[tm.home][0]}</option>
-          <option value="${tm.away}" ${r.winner===tm.away?'selected':''}>${T[tm.away][0]}</option>
+          <option value="${tm.home}" ${r.winner===tm.home?'selected':''}>${T[tm.home].name}</option>
+          <option value="${tm.away}" ${r.winner===tm.away?'selected':''}>${T[tm.away].name}</option>
         </select>
       ` : ''}
     </div>
@@ -936,7 +936,7 @@ function bindResults(){
 function exportObj(){
   return {
     app:'copa26-tracker',
-    version:5,
+    version:6,
     groupResults:state.groupResults,
     knockoutResults:state.knockoutResults
   };
